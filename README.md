@@ -29,7 +29,10 @@ Make the todo list look like [this](https://33wr94qv1.csb.app/).
 
 - Use only **functional** components.
 - Use React state hooks for state management.
-- After each step you should open a Pull Request (PR) and wait for review.
+- Development workflow:
+  - Create a git branch for each step (e.g. `step-1`)
+  - When you complete a step open a Pull Request (PR) and wait for review.
+  - Once the PR is approved, merge into master and delete the step branch.
 
 # Resources
 
