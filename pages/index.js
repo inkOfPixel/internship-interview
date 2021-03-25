@@ -1,15 +1,30 @@
-import React from 'react';
+import React, {props} from 'react';
 import ReactDOM, { render } from 'react-dom';
+import Item from '../Components/item'
+import Form from '../Components/Form'
 
-export default function Home() { 
+function Home() {
     return (
-        <form action="">
-            <label htmlFor="newItem">Nuovo item</label>
-            <input type="text" name="newItem" id="newItem" onSubmit={this.addToDo}/>
-            <input type="submit" value="add"></input>
-            <input type="submit" value="show"></input>
-            
-        </form>
+        <div className="TodoApp">
+            <header>
+                <h1>Todo List</h1>
+            </header>
+            <Form />
+        </div>       
+    );
+}
+    
+
+
+/*
+function showItems(){
+    return(
+        <div className="container">
+            <Item text="Primo item"/>
+            <Item text="Secondo item"/>
+        </div>
     )
 }
-
+*/
+//export default Home;
+export default Home;
