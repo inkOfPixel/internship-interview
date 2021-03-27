@@ -1,9 +1,8 @@
 import React, {props} from 'react';
-import ReactDOM, { render } from 'react-dom';
-import Item from '../Components/item'
 import Form from '../Components/Form'
 
 function Home() {
+    
     return (
         <div className="TodoApp">
             <header>
