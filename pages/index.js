@@ -13,17 +13,4 @@ function Home() {
     );
 }
     
-
-
-/*
-function showItems(){
-    return(
-        <div className="container">
-            <Item text="Primo item"/>
-            <Item text="Secondo item"/>
-        </div>
-    )
-}
-*/
-//export default Home;
 export default Home;

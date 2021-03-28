@@ -2,71 +2,71 @@ import React, { useState } from "react";
 
 function Form() {
   const [todo, setTodo] = useState("");
-  const [todolist, setTodoList] = useState([]);
-  const [isChecked, setChecked] = useState(false);
-
-  const hanldeChange = (e) => {
+  const [todoList, setTodoList] = useState([]);
+  
+  const handleChange = (e) => {
     setTodo(e.target.value);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
-
   const addTodo = () => {
-    //console.log(todo); test
-    if (todo !== "") {
+    if (todo != "") {
       const todoInsert = {
         id: Math.floor(Math.random() * 10000), //Generate random id from 0 to 10000
         value: todo,
         isCompleted: false,
       };
 
-      setTodoList([...todolist, todoInsert]); //... operator "spreads out the own enumerable properties as properties of the element you're creating" stack overflow
+      setTodoList([...todoList, todoInsert]); //... operator "spreads out the own enumerable properties as properties of the element you're creating" stack overflow
+      setTodo(" ");
     }
   };
 
   const deleteTodo = (e, id) => {
     e.preventDefault();
-    setTodoList(todolist.filter((t) => t.id != id));
+    setTodoList(todoList.filter((t) => t.id != id));
   };
 
-  const completeTodo = (e) => {
-    e.preventDefault();
-    setChecked(e.currentTarget.checked);
-  };
+  const completeTodo = id => {
+   setTodoList(todoList.map(item => {
+       if(item.id == id){
+        item.isCompleted = !item.isCompleted   
+       }
+       return item  
+     })
+   )
+  }
 
   return (
-    <form action="" onSubmit={handleSubmit}>
+    <div>
       <label htmlFor="newItem">Nuovo item</label>
       <input
         type="text"
         name="newItem"
         id="newItem"
-        onChange={(e) => hanldeChange(e)}
+        onChange={(e) => handleChange(e)}
         placeholder="Insert todo"
       />
       <button onClick={addTodo}>Add</button>
 
-      {todolist !== [] ? (
+      {todoList.length > 0 ? (
         <ul>
-          {todolist.map((t) => (
+          {todoList.map((t) => (
             <div className="todoLi" key={t.id}>
               <li>
                 {t.value}
-                {t.id}
                 <button onClick={(e) => deleteTodo(e, t.id)}>Delete</button>
                 <input
                   type="checkbox"
-                  onChange={completeTodo}
-                  checked={t.isChecked}
+                  onChange={() => completeTodo(t.id)}
+                  checked={t.isCompleted}
                 />
               </li>
+              {console.log(todoList)}
             </div>
           ))}
         </ul>
       ) : null}
-    </form>
+    </div>
   );
 }
 
