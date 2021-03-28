@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 function Form() {
   const [todo, setTodo] = useState("");
   const [todoList, setTodoList] = useState([]);
-
+  
   const handleChange = (e) => {
     setTodo(e.target.value);
   };
@@ -17,9 +17,23 @@ function Form() {
       };
 
       setTodoList([...todoList, todoInsert]); //... operator "spreads out the own enumerable properties as properties of the element you're creating" stack overflow
-      setTodo(" ");
+      setTodo("");
+      
     }
   };
+
+  React.useEffect(() => {
+    const list = localStorage.getItem('todos')
+    if(list){
+      setTodoList(JSON.parse(list))
+    }
+   }, []);
+
+  React.useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todoList))
+   }, [todoList]);
+
+
 
   const deleteTodo = (e, id) => {
     e.preventDefault();
