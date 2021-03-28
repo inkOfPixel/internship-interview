@@ -72,13 +72,13 @@ function Form() {
           {todoList.map((t) => (
             <div className="todoLi" key={t.id}>
               <li>
-                {t.value}
-                <button onClick={(e) => deleteTodo(e, t.id)}>Delete</button>
                 <input
                   type="checkbox"
                   onChange={() => completeTodo(t.id)}
                   checked={t.isCompleted}
                 />
+                {t.value}
+                <button onClick={(e) => deleteTodo(e, t.id)}>Delete</button>
               </li>
             </div>
           ))}

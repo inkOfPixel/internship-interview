@@ -5,9 +5,7 @@ function Home() {
     
     return (
         <div className="TodoApp">
-            <header>
-                <h1>Todo List</h1>
-            </header>
+            <h1>Todo List</h1>
             <Form />
         </div>       
     );

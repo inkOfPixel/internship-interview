@@ -14,3 +14,29 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.TodoApp{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+ul{
+  list-style-type: none;
+}
+
+li button{
+  align-self: flex-end;
+}
+
+body{
+  background-color: #f5f5f5;
+}
+
+.todoLi{
+ background-color: white; 
+ border: 1px solid black;
+ margin: 5px;
+ padding: 5px;
+}
