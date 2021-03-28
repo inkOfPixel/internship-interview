@@ -1,5 +1,16 @@
-export default function Home() {
-  return (
-    <h1>Hello World</h1>
-  )
+import React, {props} from 'react';
+import Form from '../Components/Form'
+
+function Home() {
+    
+    return (
+        <div className="TodoApp">
+            <header>
+                <h1>Todo List</h1>
+            </header>
+            <Form />
+        </div>       
+    );
 }
+    
+export default Home;
