@@ -3,14 +3,13 @@ import React, { useState, useEffect } from "react";
 function Form() {
   const [todo, setTodo] = useState("");
   const [todoList, setTodoList] = useState([]);
-  let counter = 0;
   
   const handleChange = (e) => {
     setTodo(e.target.value);
   };
 
   const addTodo = () => {
-    if (todo != " ") {
+    if (todo != "") {
       const todoInsert = {
         id: Math.floor(Math.random() * 10000), //Generate random id from 0 to 10000
         value: todo,
@@ -18,7 +17,7 @@ function Form() {
       };
 
       setTodoList([...todoList, todoInsert]); //... operator "spreads out the own enumerable properties as properties of the element you're creating" stack overflow
-      setTodo(" ");
+      setTodo("");
       
     }
   };
