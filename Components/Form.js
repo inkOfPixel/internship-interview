@@ -17,13 +17,13 @@ function Form() {
       };
 
       setTodoList([...todoList, todoInsert]); //... operator "spreads out the own enumerable properties as properties of the element you're creating" stack overflow
-      setTodo("");
+      setTodo(" ");
     }
   };
 
   const deleteTodo = (e, id) => {
     e.preventDefault();
-    setTodoList(todoList.filter((t) => t.id != id));
+    setTodoList(todoList.filter((t) => t.id !== id));
   };
 
   const completeTodo = (id) => {
@@ -34,10 +34,8 @@ function Form() {
             ...item,
             isCompleted: !item.isCompleted,
           };
-        } else
-          return {
-            ...item,
-          };
+        }
+        return item;
       })
     );
   };
