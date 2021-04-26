@@ -16,18 +16,23 @@ a {
 }
 
 .TodoApp{
+  margin: 0 auto;
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border: 1px solid black;
+  width: 50%;
+  background-color: white;
 }
 
 ul{
   list-style-type: none;
 }
 
-li button{
-  align-self: flex-end;
+.todoLi button{
+  float: right;
 }
 
 body{

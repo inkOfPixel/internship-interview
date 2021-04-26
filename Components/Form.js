@@ -54,6 +54,16 @@ function Form() {
     );
   };
 
+  const pStyleNotCompleted = {
+    textdecoration: 'none',
+    display: 'inline'
+  };
+
+  const pStyleCompleted = {
+    'text-decoration': 'line-through',
+    display: 'inline'
+  };
+
   return (
     <div>
       <label htmlFor="newItem">Nuovo item</label>
@@ -77,7 +87,7 @@ function Form() {
                   onChange={() => completeTodo(t.id)}
                   checked={t.isCompleted}
                 />
-                {t.value}
+                {t.isCompleted ? <p style={pStyleCompleted}>{t.value}</p> : <p style={pStyleNotCompleted}>{t.value}</p>}
                 <button onClick={(e) => deleteTodo(e, t.id)}>Delete</button>
               </li>
             </div>
